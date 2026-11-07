@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edith Austria | Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3e6fa;--grad:linear-gradient(135deg,#fbe3f1 0%,#ead9fa 55%,#d9d0fa 100%);--ink:#2a1430;--muted:#6a4f7d;--rose:#b8338f;--blush:#ecd2f5;--card:#fff;--line:#d9bde9}
+@media (prefers-color-scheme:dark){:root{--bg:#1e1028;--grad:linear-gradient(135deg,#2a1235 0%,#231642 100%);--ink:#f6e9fb;--muted:#c9aedb;--rose:#f08ad8;--blush:#3d2150;--card:#2b1838;--line:#52306a}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);background-image:var(--grad);background-attachment:fixed;color:var(--ink);font:17px/1.6 "DM Sans",system-ui,sans-serif}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--rose);outline-offset:3px}
+header{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;padding:14px 5vw}
+header b{font:1.3rem "DM Serif Display",serif}
+nav a{margin-left:22px;text-decoration:none;font-weight:500}
+nav a:hover{color:var(--rose)}
+section{padding:72px 5vw;max-width:1100px;margin:auto}
+h1,h2,h3{font-family:"DM Serif Display",serif;font-weight:400;line-height:1.1;margin:0}
+.hero{min-height:78vh;display:flex;flex-direction:column;justify-content:center}
+.hero h1{font-size:clamp(3.4rem,13vw,9rem);color:var(--rose);letter-spacing:-.02em}
+.hero p{max-width:34em;font-size:1.2rem;color:var(--muted);margin:22px 0 28px}
+.btn{display:inline-block;background:var(--rose);color:#fff;padding:12px 24px;border-radius:999px;text-decoration:none;font-weight:700;margin-right:10px;border:0;font:inherit;font-weight:700;cursor:pointer}
+.btn.alt{background:transparent;color:var(--rose);border:2px solid var(--rose)}
+h2{font-size:clamp(2rem,5vw,3.2rem);margin-bottom:28px}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.about blockquote{margin:0;padding:28px;background:var(--blush);border-radius:24px 24px 24px 4px;font:1.6rem/1.3 "DM Serif Display",serif}
+.skills{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;padding:0;list-style:none}
+.skills li{border:1px solid var(--line);background:var(--card);padding:6px 14px;border-radius:999px;font-size:.95rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.card>button{border:0;padding:0;background:var(--blush);cursor:zoom-in;height:300px;display:flex;align-items:center;justify-content:center}
+.card img{max-width:100%;max-height:100%;object-fit:contain;display:block}
+.card video{height:300px;border-radius:0;max-height:none}
+.card div{padding:16px 18px 20px}
+.card small{color:var(--rose);font-weight:700}
+.card h3{font-size:1.5rem;margin:2px 0 6px}
+.card p{color:var(--muted);margin:0;font-size:.95rem}
+video{width:100%;max-height:420px;border-radius:12px;background:#000}
+form{display:grid;gap:12px;max-width:520px}
+input,textarea{font:inherit;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+footer{text-align:center;color:var(--muted);padding:32px 5vw 48px}
+#lb{position:fixed;inset:0;background:rgba(20,8,14,.88);display:none;align-items:center;justify-content:center;z-index:10;padding:4vw;cursor:zoom-out}
+#lb.on{display:flex}
+#lb img{max-width:100%;max-height:100%;border-radius:8px}
+@media(max-width:760px){.about{grid-template-columns:1fr}nav a{margin-left:12px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+.bar{display:flex;gap:8px;align-items:center;padding:10px 5vw;font-size:.9rem;color:var(--muted);border-bottom:1px solid var(--line)}
+.bar i{width:12px;height:12px;border-radius:50%;background:var(--rose);display:inline-block;font-style:normal}
+.bar i:nth-child(2){background:var(--blush);border:1px solid var(--rose)}.bar i:nth-child(3){background:transparent;border:2px solid var(--rose)}
+.badge{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--rose);color:var(--rose);border-radius:999px;padding:4px 14px;font-weight:700;font-size:.85rem;margin-bottom:18px;align-self:flex-start}
+.badge:before{content:"";width:8px;height:8px;border-radius:50%;background:#2fb26b}
+.hero2{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:center}
+.hero2 h1{font-size:clamp(2.6rem,7vw,5.2rem);color:var(--ink)}
+.hero2 h2.sub{font:1.4rem "DM Sans";color:var(--rose);margin:14px 0 0}
+.id{justify-self:center;width:260px;transform-origin:50% 0;animation:drop .9s cubic-bezier(.2,.9,.3,1.2) backwards,swing 5s ease-in-out .9s infinite;will-change:transform;touch-action:pan-y;perspective:900px;transform-style:preserve-3d;text-align:center;cursor:pointer}
+.face:before{content:"";display:block;width:60px;height:8px;border-radius:8px;background:var(--line);margin:0 auto 12px}
+.id img{width:100%;aspect-ratio:1/1.1;object-fit:cover;object-position:center 25%;border-radius:12px}
+.id b{display:block;font:1.4rem "DM Serif Display",serif;margin-top:10px}.id span{color:var(--muted);font-size:.9rem}
+.marquee{overflow:hidden;border-block:1px solid var(--line);padding:12px 0;margin:10px 0;white-space:nowrap;font:1.3rem "DM Serif Display",serif;color:var(--rose)}
+.marquee span{display:inline-block;padding-left:100%;animation:mq 18s linear infinite}
+@keyframes mq{to{transform:translateX(-100%)}}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+.stats div{position:relative;aspect-ratio:1/.92;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:4% 14% 0;font-size:.8rem;line-height:1.2}
+.stats div:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(145deg,var(--blush),#e3a8e6);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 90'%3E%3Cpath d='M50 88C20 62 2 44 2 26 2 12 13 2 27 2c10 0 19 6 23 15C54 8 63 2 73 2c14 0 25 10 25 24 0 18-18 36-48 62z'/%3E%3C/svg%3E") center/100% 100% no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 90'%3E%3Cpath d='M50 88C20 62 2 44 2 26 2 12 13 2 27 2c10 0 19 6 23 15C54 8 63 2 73 2c14 0 25 10 25 24 0 18-18 36-48 62z'/%3E%3C/svg%3E") center/100% 100% no-repeat;animation:beat 1.8s ease-in-out infinite}
+.stats div:nth-child(2):before{animation-delay:.25s}.stats div:nth-child(3):before{animation-delay:.5s}
+.stats{isolation:isolate;gap:8px}
+@keyframes beat{0%,50%,100%{transform:scale(1)}12%{transform:scale(1.08)}25%{transform:scale(1)}37%{transform:scale(1.05)}}
+@media(prefers-reduced-motion:reduce){.stats div:before{animation:none}}
+.stats b{display:block;font:2rem "DM Serif Display",serif;color:var(--rose)}
+.tabs{display:flex;gap:8px;margin-bottom:24px}
+.tabs button{font:inherit;font-weight:700;padding:8px 22px;border-radius:999px;border:2px solid var(--rose);background:transparent;color:var(--rose);cursor:pointer}
+.tabs button[aria-selected=true]{background:var(--rose);color:#fff}
+.panel[hidden]{display:none}
+.tools{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px}
+.tools div{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;text-align:center;font-weight:700}
+.tools em{display:block;font-style:normal;font-size:2rem}
+.cm{list-style:none;padding:0;margin:20px 0;display:grid;gap:10px;max-width:520px}.cm li{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 14px}.cm b{color:var(--rose)}
+.back{display:inline-block;margin-top:24px;color:var(--rose);font-weight:700;text-decoration:none}
+@media(max-width:760px){.hero2{grid-template-columns:1fr}.stats b{font-size:1.5rem}.stats div{font-size:.7rem}}
+@media(prefers-reduced-motion:reduce){.marquee span{animation:none;padding:0}}
+@keyframes drop{from{transform:translateY(-120px) rotate(-14deg);opacity:0}}
+@keyframes swing{0%,100%{transform:rotate(3.5deg)}50%{transform:rotate(-3.5deg)}}
+.id.live{animation:none;transition:transform .12s ease-out}.id.live .face{box-shadow:14px 14px 0 var(--blush)}
+@media(prefers-reduced-motion:reduce){.id{animation:none;transform:rotate(3deg)}}
+.in{position:relative;transform-style:preserve-3d;transition:transform .8s cubic-bezier(.4,.2,.2,1)}
+.id.flipped .in{transform:rotateY(180deg)}
+.face{background:var(--card);border:2px solid var(--rose);border-radius:20px;padding:14px;box-shadow:8px 8px 0 var(--blush);backface-visibility:hidden;-webkit-backface-visibility:hidden;transition:box-shadow .3s}
+.face.back{position:absolute;inset:0;transform:rotateY(180deg);display:flex;flex-direction:column;justify-content:center;gap:8px;padding:22px}
+.back p{margin:6px 0;font:1.15rem/1.3 "DM Serif Display",serif;color:var(--rose)}
+.back .hint{font-size:.8rem}
+@media(prefers-reduced-motion:reduce){.in{transition:none}}
+.back>img{display:none}
+.back.has-img{padding:14px}
+.back.has-img>:not(img){display:none}
+.back.has-img>img{display:block;flex:1;min-height:0;width:100%;object-fit:cover;border-radius:12px}
+.bgfx{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden;background:radial-gradient(circle at 12% 18%,rgba(255,140,215,.32),transparent 38%),radial-gradient(circle at 88% 72%,rgba(150,120,255,.30),transparent 42%),radial-gradient(var(--line) 1.4px,transparent 1.6px) 0 0/30px 30px}
+.bgfx span{position:absolute;color:var(--rose);opacity:.22;animation:drift 7s ease-in-out infinite}
+.bgfx span:nth-child(3n){animation-duration:9s;opacity:.3}
+@keyframes drift{0%,100%{transform:translateY(0) rotate(-8deg)}50%{transform:translateY(-26px) rotate(10deg)}}
+@media(prefers-reduced-motion:reduce){.bgfx span{animation:none}}
+</style>
+</head>
+<body>
+<div class="bgfx" aria-hidden="true"><span style="top:6%;left:12%;font-size:30px;animation-delay:-0s">✦</span><span style="top:10%;left:36%;font-size:11px;animation-delay:-0.8s">◆</span><span style="top:18%;left:70%;font-size:22px;animation-delay:-1.2s">✦</span><span style="top:26%;left:92%;font-size:13px;animation-delay:-0.2s">◆</span><span style="top:30%;left:30%;font-size:18px;animation-delay:-0.6s">✦</span><span style="top:44%;left:86%;font-size:34px;animation-delay:-2s">✦</span><span style="top:48%;left:14%;font-size:12px;animation-delay:-1.4s">◆</span><span style="top:58%;left:8%;font-size:26px;animation-delay:-0.3s">✦</span><span style="top:64%;left:52%;font-size:20px;animation-delay:-1.7s">✦</span><span style="top:72%;left:30%;font-size:10px;animation-delay:-2.2s">◆</span><span style="top:78%;left:24%;font-size:32px;animation-delay:-0.9s">✦</span><span style="top:86%;left:78%;font-size:24px;animation-delay:-2.4s">✦</span><span style="top:90%;left:56%;font-size:14px;animation-delay:-0.5s">◆</span><span style="top:12%;left:48%;font-size:16px;animation-delay:-1.5s">✦</span><span style="top:94%;left:10%;font-size:22px;animation-delay:-1.1s">✦</span><span style="top:36%;left:6%;font-size:11px;animation-delay:-2.1s">◆</span><span style="top:54%;left:66%;font-size:12px;animation-delay:-0.1s">◆</span></div>
+<div class="bar" aria-hidden="true"><i></i><i></i><i></i><span>&lt;/&gt; Welcome to my Portfolio Website</span></div>
+<header>
+  <b>Edith Austria</b>
+  <nav aria-label="Main"><a href="#home">Home</a><a href="#about">About</a><a href="#portfolio">Portfolio</a><a href="#contact">Contact</a></nav>
+</header>
+
+<main>
+<section id="home" class="hero hero2">
+  <div style="display:flex;flex-direction:column">
+    <span class="badge">AVAILABLE FOR WORK</span>
+    <h1>UI/UX &amp; Graphic Designer</h1>
+    <h2 class="sub">Student Developer</h2>
+    <p>Creating clean, friendly interfaces and eye-catching print and social media designs. Turning ideas into easy-to-use experiences.</p>
+    <div><a class="btn" href="#portfolio">View my work</a><a class="btn alt" href="#contact">Contact me</a></div>
+  </div>
+  <div class="id" role="button" tabindex="0" aria-label="ID card. Press to flip"><div class="in">
+    <div class="face"><img src="assets/images/edith-photo.jpg" alt="Edith Austria"><b>Edith Austria</b><span>3-CS4 · Student</span></div>
+    <div class="face back"><img src="assets/images/edith-back.jpg" alt="Edith Austria, back of ID card"><b>Edith Austria</b><span>UI/UX &amp; Graphic Designer</span><span>Section 3-CS4</span><p>“The future belongs to those who believe in the beauty of their dreams.”</p><span class="hint">Tap to flip back</span></div>
+  </div></div>
+</section>
+<div class="marquee" aria-hidden="true"><span>Design meets Creativity · Ideas into Reality · Clean &amp; Clear · Design meets Creativity · Ideas into Reality · Clean &amp; Clear</span></div>
+
+<section id="about">
+  <h2>About me</h2>
+  <div class="about">
+    <div>
+      <p>I’m Edith Austria, a 3rd-year student who loves turning ideas into designs people can actually use. From app screens to posters and videos, I like making things that look good and make sense at first glance.</p>
+      <p>Outside of school, I enjoy music, movies and series, exploring new places, and spending time with the people I care about. I’m always learning something new, and I treat every mistake as a step toward getting better.</p>
+      <ul class="skills" aria-label="Skills">
+        <li>UI/UX design</li><li>User flows</li><li>Prototyping</li><li>Print design</li><li>Social media design</li><li>Video editing</li>
+      </ul>
+    </div>
+    <div><blockquote>“The future belongs to those who believe in the beauty of their dreams.”</blockquote><div class="stats"><div><b data-n="7">0</b>Projects</div><div><b data-n="7">0</b>Completed works</div><div><b data-n="6">0</b>Tools &amp; skills</div></div></div>
+  </div>
+</section>
+
+<section id="portfolio">
+  <h2>Portfolio Showcase</h2>
+  <p style="margin-top:-14px;color:var(--muted)">Explore my projects and the tools I use.</p>
+  <div class="tabs" role="tablist"><button role="tab" aria-selected="true" data-t="p1">Projects</button><button role="tab" aria-selected="false" data-t="p2">Tech Stack</button></div>
+  <div class="panel" id="p1"><div class="grid">
+    <article class="card">
+      <button type="button"><img src="assets/images/lunchline-prototype.png" alt="LunchLine app prototype, five screens from Home to Order Confirmation"></button>
+      <div><small>UI/UX · Figma</small><h3>LunchLine</h3><p>Mid-fidelity prototype of a campus food ordering app, with the delivery fee shown in the cart and a clear order confirmation.</p></div>
+    </article>
+    <article class="card">
+      <button type="button"><img src="assets/images/edith-magazine.png" alt="Cover of Edith magazine"></button>
+      <div><small>Layout design</small><h3>Edith Magazine</h3><p>A four-page personal magazine: “One student, four pages, one story.”</p></div>
+    </article>
+    <article class="card">
+      <button type="button"><img src="assets/images/blushe-clothing.png" alt="Blushé Clothing print media design service proposal cover"></button>
+      <div><small>Print media</small><h3>Blushé Clothing</h3><p>Print design service proposal for a fashion brand for girls who love pink: a flyer and a poster.</p></div>
+    </article>
+    <article class="card">
+      <button type="button"><img src="assets/images/tech-week-2026.png" alt="St Timothy University Tech Week 2026 social media post"></button>
+      <div><small>Social media</small><h3>Tech Week 2026</h3><p>Event post for St Timothy University with one bold headline and a Register Now button.</p></div>
+    </article>
+    <article class="card">
+      <button type="button"><img src="assets/images/brew-and-bloom-cafe.png" alt="Brew &amp; Bloom Café poster with drink specials"></button>
+      <div><small>Poster design</small><h3>Brew &amp; Bloom Café</h3><p>A warm poster for a cozy café in Calamba, Laguna, with a specials menu.</p></div>
+    </article>
+    <article class="card">
+      <button type="button"><img src="assets/images/heart-spire-logo.png" alt="Heart Spire logo, an open book with a heart"></button>
+      <div><small>Logo design</small><h3>Heart Spire</h3><p>Logo for “Learning with Heart,” where knowledge grows with care and passion.</p></div>
+    </article>
+    <article class="card">
+      <video controls preload="metadata" aria-label="Promotional video"><source src="assets/video/promo-video.mp4" type="video/mp4"></video>
+      <div><small>Video</small><h3>Promotional video</h3><p>A promotional video made for my CEEL301 class.</p></div>
+    </article>
+  </div></div>
+  <div class="panel" id="p2" hidden><div class="tools"><div><em>🎨</em>Figma</div><div><em>🖌️</em>Canva</div><div><em>🎬</em>Video editing</div><div><em>🖨️</em>Print design</div><div><em>📱</em>UI/UX design</div><div><em>🐙</em>GitHub</div></div></div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Want to collaborate or just say hello? Send me a message.</p>
+  <form id="f">
+    <input name="name" placeholder="Your name" required aria-label="Your name">
+    <input name="email" type="email" placeholder="Your email" required aria-label="Your email">
+    <textarea name="msg" rows="5" placeholder="Your message" required aria-label="Your message"></textarea>
+    <button class="btn" type="submit">Send message</button>
+  </form>
+  <h2 style="margin-top:56px">Comments</h2>
+  <p>Leave your thoughts here.</p>
+  <form id="cf"><input id="cn" placeholder="Your name" required aria-label="Name"><textarea id="ct" rows="3" placeholder="Your comment" required aria-label="Comment"></textarea><button class="btn" type="submit">Post comment</button></form>
+  <ul class="cm" id="cl"></ul>
+  <a class="back" href="#home">← Back to top</a>
+</section>
+</main>
+
+<footer>© 2026 Edith Austria</footer>
+
+<div id="lb" role="dialog" aria-label="Image preview"><img alt=""></div>
+<script>
+var lb=document.getElementById('lb'),li=lb.querySelector('img');
+document.querySelectorAll('.card img').forEach(function(i){i.parentNode.onclick=function(){li.src=i.src;li.alt=i.alt;lb.classList.add('on')}});
+lb.onclick=function(){lb.classList.remove('on')};
+document.addEventListener('keydown',function(e){if(e.key==='Escape')lb.classList.remove('on')});
+// Palitan ang email sa baba ng totoong email mo
+var EMAIL='youremail@example.com';
+document.getElementById('f').onsubmit=function(e){e.preventDefault();var d=new FormData(e.target);
+location.href='mailto:'+EMAIL+'?subject='+encodeURIComponent('Message from '+d.get('name'))+'&body='+encodeURIComponent(d.get('msg')+'\n\n'+d.get('email'))};
+
+document.querySelectorAll('[data-n]').forEach(function(e){var n=+e.dataset.n,i=0,t=setInterval(function(){e.textContent=++i;if(i>=n)clearInterval(t)},120)});
+document.querySelectorAll('.tabs button').forEach(function(b){b.onclick=function(){document.querySelectorAll('.tabs button').forEach(function(x){x.setAttribute('aria-selected',x===b)});document.querySelectorAll('.panel').forEach(function(p){p.hidden=p.id!==b.dataset.t})}});
+var cl=document.getElementById('cl'),C=[];try{C=JSON.parse(localStorage.getItem('cm')||'[]')}catch(e){}
+function draw(){cl.innerHTML='';C.forEach(function(c){var li=document.createElement('li'),b=document.createElement('b');b.textContent=c.n;li.appendChild(b);li.appendChild(document.createTextNode(': '+c.t));cl.appendChild(li)})}draw();
+document.getElementById('cf').onsubmit=function(e){e.preventDefault();C.push({n:cn.value,t:ct.value});try{localStorage.setItem('cm',JSON.stringify(C))}catch(x){}draw();e.target.reset()};
+
+var id=document.querySelector('.id');
+if(id&&!matchMedia('(prefers-reduced-motion:reduce)').matches){
+id.addEventListener('pointermove',function(e){var r=id.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;id.classList.add('live');id.style.transform='perspective(700px) rotateY('+(x*24)+'deg) rotateX('+(-y*24)+'deg) scale(1.04)'});
+id.addEventListener('pointerleave',function(){id.classList.remove('live');id.style.transform=''});}
+
+if(id){function fl(){id.classList.toggle('flipped')}id.addEventListener('click',fl);id.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();fl()}})}
+
+var bk=document.querySelector('.back'),bi=bk&&bk.querySelector('img');
+if(bi){function ok(){if(bi.naturalWidth)bk.classList.add('has-img')}bi.addEventListener('load',ok);if(bi.complete)ok()}
+</script>
+</body>
+</html>
